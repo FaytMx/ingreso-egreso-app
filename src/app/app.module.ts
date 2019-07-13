@@ -19,6 +19,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // Modulos
 import { AppRoutingModule } from './app-routing.module';
 
+// NGRX
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './app.reducer';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +44,8 @@ import { AppRoutingModule } from './app-routing.module';
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    StoreModule.forRoot(appReducer),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
