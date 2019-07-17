@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styles: []
 })
 export class RegisterComponent implements OnInit, OnDestroy {
-  subscription: Subscription;
+  subscription: Subscription = new Subscription();
   cargando: boolean;
   constructor(public authService: AuthService, public store: Store<AppState>) { }
 
