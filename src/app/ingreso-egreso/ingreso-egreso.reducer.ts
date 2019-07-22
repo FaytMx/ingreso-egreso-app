@@ -1,5 +1,6 @@
 import * as fromIngresoEgreso from './ingreso-egreso.actions';
 import { IngresoEgreso } from './ingreso-egreso.model';
+import { AppState } from '../app.reducer';
 
 export interface IngresoEgresoState {
     items: IngresoEgreso[];
@@ -7,6 +8,10 @@ export interface IngresoEgresoState {
 const estadoInicial: IngresoEgresoState = {
     items: []
 };
+
+export interface AppStateI extends AppState {
+    ingresoEgreso: IngresoEgresoState;
+}
 
 export function ingresoEgresoReducer(state = estadoInicial, action: fromIngresoEgreso.acciones): IngresoEgresoState {
     switch (action.type) {

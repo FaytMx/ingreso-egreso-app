@@ -11,7 +11,7 @@ import { auth } from 'firebase';
   styles: []
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  
+
   nombre: string;
   subscription: Subscription = new Subscription();
 
@@ -19,9 +19,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.store.select('auth')
-    .pipe(
-      filter(auth => auth.user != null)
-    )
+      .pipe(
+        filter(auth => auth.user != null)
+      )
       .subscribe(auth => this.nombre = auth.user.nombre);
   }
 
